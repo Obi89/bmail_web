@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Boogle-Contact`s{% if user %} - {{ user.email() }} {% endif %}{% endblock title %}</title>
+</head>
+<body>
+{% extends "base.html" %}
+{% block page_content %}
+<div id="top" class="book">
+    <style>.book{background-image: url(assets/img/contact.jpg);}</style>
+    <div class="bookcontent">
+        {% if user %}
+<form method="post">
+    <h3><i class="material-icons">add_circle_outline</i> New Contact! <i class="material-icons">add_circle_outline</i></h3><br>
+    <div class="new_contact">
+        <p><input type="hidden" name="c_user" value="{{ user.email() }}"></p>
+        <h6> Name: <input class="form-control" type="text" name="c_name" value="" required placeholder="Max Power"></h6>
+        <h6>  Birthday: <input class="form-control" type="text" name="c_date" placeholder="01.01.1990"></h6>
+</div>
+     <div>
+    <h6>  Email: <input class="form-control" type="email" name="c_email" placeholder="example@example.com"></h6>
+    <h6>  Mobil: <input class="form-control"type="text" name="c_mobil" placeholder="+43 0660 1234567"></h6>
+    </div>
+    <h6>Address: </h6>
+    <div>
+
+    <h6> <textarea class="form-control" name="c_address" rows="6" cols="30" placeholder="street, city:"></textarea></h6>
+    </div>
+
+    <button class="btn btn-outline-dark" type="submit"><i class="material-icons">add_circle_outline</i> Add</button>
+</form>
+        {% else %}
+<p>Please login if you'd like to post a message.</p>
+{% endif %}
+    </div>
+    <div class="contacts">
+        <form method="" action="" class="form-inline my-2 my-lg-0" style="margin-left: 80%;">
+      <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search..." aria-label="Search">
+      <button class="btn btn-outline-dark my-2 my-sm-0" type="submit"><i class="material-icons">search</i> Search</button>
+     </form>
+<h3><i class="material-icons">perm_contact_calendar</i> All your Contacts <i class="material-icons">perm_contact_calendar</i></h3>
+
+       {% for contact in contacts %}
+        {% if contact.c_user == user.email()%}
+
+    <p>
+         <br>
+        <strong><i>Name: {{ contact.c_name }}</i></strong>
+         <br>
+        <i><strong> Email:</strong> {{ contact.c_email }} </i>
+         <br>
+        <i><strong> Mobil:</strong> {{ contact.c_mobil }} </i>
+        <br>
+        <em><strong>Birthday:</strong> {{ contact.c_date }}</em>
+        <br>
+        <em><strong>Address:</strong> {{ contact.c_address }}</em>
+        <br>
+        <a href="/contact/{{contact.key.id()}}/delete" data-toggle="tooltip" data-placement="delete" title="delete"><i class="material-icons">delete</i></a>
+        <strong>----------------------------------------------------</strong>
+        <br>
+    </p>
+        <br>
+        {% endif %}
+        {% else %}
+        <p>No contacts yet.</p>
+                {% endfor %}
+
+<a class="btn btn-outline-light" data-toggle="tooltip" data-placement="top" title="top" href="#top"><i class="material-icons">keyboard_arrow_up</i></a>
+</div>
+</div>
+
+
+{% endblock page_content %}
+</body>
+</html>

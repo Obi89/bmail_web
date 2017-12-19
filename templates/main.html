@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Bmail {% if user %} - {{ user.email() }} {% endif %}{% endblock title %}</title>
+</head>
+<body>
+{% extends "base.html" %}
+{% block page_content %}
+
+<div class="welcome">
+    <style>.welcome{background-image: url(assets/img/connect.jpeg);}</style>
+    <div class="boogle">
+        <style>.boogle{background-image: url(assets/img/welcome.jpeg);}</style>
+        <h2 class="bmail">Welcome to <br><i>B</i>mail!</h2>
+        {% if user %}
+        <h5>{{ user.email() }}</h5>
+        <a class="btn btn-outline-light" href="/boogle">Compose a new Message!</a>
+        {% else %}
+ <a class="btn btn-outline-light" href="{{ login_url }}">Login and send your Messages!</a>
+        {% endif %}
+
+</div>
+</div>
+
+{% endblock page_content %}
+</body>
+</html>
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Permanently delete Message{% endblock title %}</title>
+</head>
+<body>
+{% extends "base.html" %}
+{% block page_content %}
+<div class="box">
+    <style>.box{background-color: rgb(191, 191, 191); margin-top: -100px; padding: 110px 0px 380px 0px; text-align: center;}</style>
+     <div class="boxcontent">
+<div class="messages">
+
+<h3>Message: Show message</h3>
+
+<form>
+    <p><strong>Message</strong></p>
+
+    <p><strong>From:</strong> {{ message.send }}</p>
+
+    <p><strong>To:</strong> {{ message.email }}</p>
+
+    <p><strong>subject:</strong> {{ message.email }}</p>
+
+    <p><strong>Text:</strong> {{ message.message }}</p>
+
+
+ <a class="btn btn-outline-light" href="/boogle" ><i class="material-icons">arrow_back</i> back</a>
+</form>
+    </div>
+</div>
+</div>
+{% endblock page_content %}
+
+</body>
+</html>
+
+</body>
+</html>

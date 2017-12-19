@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Permanently delete Message{% endblock title %}</title>
+</head>
+<body>
+{% extends "base.html" %}
+{% block page_content %}
+<div class="box">
+    <style>.box{background-image: url(assets/img/connect.jpeg);}</style>
+<div class="messages">
+<h3><i class="material-icons"> delete </i>Deleted<i class="material-icons">delete</i></h3>
+
+<h3>Your Messages</h3>
+{% for message in messages %}
+    <p>
+        <strong><i>to: {{ message.email }}</i></strong><br>
+        <i><strong>from:</strong>{{ message.send }}</i><br>
+        at {{ message.created.strftime('%d %B %Y at %H:%M') }}:
+        <br>
+        <em>{{ message.message }}</em>
+        <br>
+        <a href="/message/{{message.key.id()}}/restore" data-toggle="tooltip" data-placement="restore" title="restore"><i class="material-icons">delete_sweep</i></a> |
+        <a href="/message/{{message.key.id()}}/complete-delete" data-toggle="tooltip" data-placement="delete forever" title="delete forever"><i class="material-icons">delete_forever</i></a>
+        <br>
+        <em>-----------------------------------------</em>
+    </p>
+    <br>
+{% else %}
+    <br>
+    <p>No messages yet.</p>
+    <br>
+{% endfor %}
+    <a class="btn btn-outline-light" data-toggle="tooltip" data-placement="top" title="top" href="#top"><i class="material-icons">keyboard_arrow_up</i></a>
+</div>
+</div>
+
+{% endblock page_content %}
+</body>
+</html>

@@ -1,0 +1,249 @@
+body{
+font-family: sans-serif;
+}
+nav{
+  background-color: none;
+ font-family: sans-serif;
+}
+.navbar-brand{
+  font-weight:normal;
+  font-size: 20px;
+  color: rgb(51, 133, 255);
+}
+.navi{
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+.nav-link .material-icons{
+font-size: 14px;
+}
+.login-link .material-icons{
+font-size: 14px;
+}
+.btn .material-icons{
+font-size: 14px;
+}
+.login-link{
+color: rgba(255, 255, 255, 0.6);
+}
+.login-link:hover{
+color: rgba(255, 255, 255, 0.8);
+text-decoration: none;
+}
+.welcome{
+  border: white solid 0.2px;
+  margin-top: -50px;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-position-x: 50%;
+  background-position-y: 50%;
+  background-size: cover;
+}
+.boogle{
+ background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-position-x: 50%;
+  background-position-y: 50%;
+  background-size: cover;
+  height: 500px;
+  margin-top: 150px;
+  margin-bottom: 300px;
+  text-align: center;
+  color: rgb(260, 260, 260);
+font-family: sans-serif;
+  background-color: rgba(180, 180, 180, 0.7);
+  border-top: solid white 0.5px;
+  border-bottom: solid white 0.5px;
+}
+.boogle .bmail{
+  margin-bottom: 30px;
+  margin-top: 90px;
+  color: rgb(255, 255, 255);
+font-family: sans-serif;
+  font-size: 70px;
+}
+.boogle .bmail i{
+  font-style: normal;
+  color: rgb(255, 0, 0);
+  font-family: sans-serif;
+  font-size: 70px;
+}
+.book{
+  border: white solid 0.2px;
+  margin-top: -50px;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-position-x: 50%;
+  background-position-y: 50%;
+  background-size: cover;
+}
+.bookcontent{
+  margin: 100px 70px 50px 70px;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-family: sans-serif;
+  background-color: rgba(180, 180, 180, 0.7);
+  border-top: solid white 0.5px;
+  border-bottom: solid white 0.5px;
+  padding: 30px 0px;
+}
+.bookcontent .subject input{
+font-family: sans-serif;
+width: 590px;
+
+}
+.bookcontent .new input{
+font-family: sans-serif;
+width: 590px;
+
+}
+.bookcontent h6{
+font-family: sans-serif;
+display:inline-table;
+}
+
+p{
+width: 250px;
+box-sizing: border-box;
+margin: 0px auto;
+font-family: sans-serif;
+}
+.messages p{
+width: 100%;
+box-sizing: border-box;
+margin: 0px auto;
+font-family: sans-serif;
+padding: 0px 20% 0px 20%;
+}
+.bookcontent p{
+font-size: 20px;
+}
+.messages{
+ margin: 100px 0px 0px 0px;
+  text-align: center;
+  color: rgb(0, 0, 0);
+ font-family: sans-serif;
+  background-color: rgba(220, 220, 220, 0.7);
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+.message_edit{
+}
+.form-group{
+font-family: sans-serif;
+}
+.footermain{
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.0);
+font-family: sans-serif;
+  position: fixed;
+  bottom: 0px;
+  color: white;
+  width: 100%;
+}
+.socicon div{
+  float: left;
+  margin: 6px 10px 2px 5px;
+}
+.socicon .admin{
+  margin-top: 2px;
+  float: right;
+  color: white;
+}
+.socicon .copy{
+  float: left;
+  font-size: 10px;
+  margin: 5px 10px 0px 5px;
+}
+.admin_content{
+margin-top: 70px;
+text-align: center;
+}
+
+.footermain a{
+color: white;
+float: right;
+}
+.footermain a:hover{
+color: rgb(64, 64, 64);
+}
+.box{
+  border: white solid 0.2px;
+  margin-top: -50px;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-position-x: 50%;
+  background-position-y: 50%;
+  background-size: cover;
+}
+.boxcontent{
+  margin: 100px 0px 250px 0px;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-family: sans-serif;
+  background-color: rgba(180, 180, 180, 0.7);
+  border-top: solid white 0.5px;
+  border-bottom: solid white 0.5px;
+  padding: 30px 0px;
+}
+.user{
+margin: 0px 5px 0px 5px;
+width: 22px;
+height: 22px;
+background-color: white;
+border-radius: 20px;
+}
+.usermail{
+color: white;
+}
+.weather{
+border: white solid 0.2px;
+  margin-top: -50px;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-position-x: 50%;
+  background-position-y: 50%;
+  background-size: cover;
+}
+.info{
+  margin: 100px 20% 150px 20%;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-family: sans-serif;
+  background-color: rgba(180, 180, 180, 0.7);
+  border-top: solid white 0.5px;
+  border-bottom: solid white 0.5px;
+  padding: 30px 0px;
+}
+.info ul{
+list-style: none;
+}
+.contacts{
+margin: 100px 0px 0px 0px;
+  text-align: center;
+  color: rgb(0, 0, 0);
+ font-family: sans-serif;
+  background-color: rgba(220, 220, 220, 0.7);
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+.new_contact{
+ font-family: sans-serif;
+}
+
+.search{
+float: right;
+
+}
+
+input .form-control{
+float: left;
+}
+
+

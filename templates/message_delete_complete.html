@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Permanently delete Message{% endblock title %}</title>
+</head>
+<body>
+{% extends "base.html" %}
+{% block page_content %}
+<div class="box">
+    <style>.box{background-color: rgb(191, 191, 191); margin-top: -100px; padding: 110px 0px 380px 0px; text-align: center;}</style>
+     <div class="boxcontent">
+<div class="messages">
+
+<h3><i class="material-icons">delete_forever</i> Permanently delete <i class="material-icons">delete_forever</i></h3>
+
+<form method="post">
+      <p><strong>Delete this message</strong></p>
+
+    <p><strong>From:</strong> {{ message.send }}</p>
+
+    <p><strong>To:</strong> {{ message.email }}</p>
+
+    <p><strong>subject:</strong> {{ message.email }}</p>
+
+    <p><strong>text:</strong> {{ message.message }}</p>
+
+     <button class="btn btn-outline-danger" type="submit"><i class="material-icons">delete_forever</i> Delete this message compete?!</button>
+  <a class="btn btn-outline-light" href="/deleted" >cancel</a>
+</form>
+    </div>
+</div>
+</div>
+{% endblock page_content %}
+
+</body>
+</html>

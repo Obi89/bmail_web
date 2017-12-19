@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Permanently delete Message{% endblock title %}</title>
+</head>
+<body>
+{% extends "base.html" %}
+{% block page_content %}
+<div class="box">
+    <style>.box{background-color: rgb(191, 191, 191); margin-top: -100px; padding: 110px 0px 380px 0px; text-align: center;}</style>
+     <div class="boxcontent">
+<div class="messages">
+
+<h3><i class="material-icons">delete</i>Contact: Delete contact<i class="material-icons">delete</i></h3>
+
+<form method="post">
+    <p><strong>Delete this contact</strong></p>
+
+    <p><strong>name:</strong> {{ contact.c_name }}</p>
+
+    <p><strong>email:</strong> {{ contact.c_email }}</p>
+
+    <p><strong>mobil:</strong> {{ contact.c_mobil }}</p>
+
+    <p><strong>date:</strong> {{ contact.c_date }}</p>
+
+    <p><strong>address:</strong> {{ contact.c_address }}</p>
+
+     <button class="btn btn-outline-danger" type="submit"><i class="material-icons">delete</i> Delete this contact?!</button>
+        <a class="btn btn-outline-light" href="/contact" >cancel</a>
+</form>
+    </div>
+</div>
+</div>
+{% endblock page_content %}
+
+</body>
+</html>

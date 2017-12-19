@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Boogle-Mails{% if user %} - {{ user.email() }} {% endif %}{% endblock title %}</title>
+</head>
+<body>
+{% extends "base.html" %}
+{% block page_content %}
+<div id="top" class="book">
+    <style>.book{background-image: url(assets/img/connect.jpeg);}</style>
+    <div class="bookcontent">
+        {% if user %}
+<form method="post">
+    <h3><i class="material-icons">create</i> New Message! <i class="material-icons">create</i></h3><br>
+    <div class="new">
+        <h6><input class="form-control" type="hidden" name="send" value="{{ user.email() }}"></h6>
+
+    <h6><input class="form-control" type="email" name="email" placeholder=" Recipient: example@example.com"></h6>
+</div>
+<div class="subject">
+    <h6><strong><input class="form-control" type="text" name="subject" placeholder="Enter a subject"></strong></h6>
+   </div>
+    <div>
+    <h6><textarea class="form-control" name="message" rows="10" cols="80" placeholder="Enter your message here ..." required></textarea></h6>
+    </div>
+    <button class="btn btn-outline-dark" type="submit"><i class="material-icons">send</i> Send</button>
+</form>
+        {% else %}
+<p>Please login if you'd like to post a message.</p>
+{% endif %}
+    </div>
+    <div class="messages">
+
+<h3><i class="material-icons">mail</i> All Messages <i class="material-icons">mail</i></h3>
+       {% for message in messages %}
+        {% if message.send == user.email()%}
+    <p>
+         <br>
+        <strong><i>From: {{ message.email }} |</i></strong>
+        at {{ message.created.strftime('%d %B %Y at %H:%M') }}: |
+        <br>
+        <br>
+        <em>{{ message.message }}</em><br>
+        <a href="/message/{{message.key.id()}}/show" data-toggle="tooltip" data-placement="view" title="view"><i class="material-icons">pageview</i></a> | <a href="/message/{{message.key.id()}}/delete" data-toggle="tooltip" data-placement="delete" title="delete"><i class="material-icons">delete</i></a><br>
+        <strong>----------------------------------------------------</strong>
+        <br>
+    </p>
+        {% elif message.email == user.email()%}
+    <p>
+         <br>
+        <strong><i>To: {{ message.send }} |</i></strong>
+        at {{ message.created.strftime('%d %B %Y at %H:%M') }}: |
+        <br>
+        <br>
+        <em>{{ message.message }}</em><br>
+        <a href="/message/{{message.key.id()}}/show" data-toggle="tooltip" data-placement="view" title="view"><i class="material-icons">pageview</i></a> | <a href="/message/{{message.key.id()}}/delete" data-toggle="tooltip" data-placement="delete" title="delete"><i class="material-icons">delete</i></a><br>
+        <strong>----------------------------------------------------</strong>
+        <br>
+    </p>
+
+
+
+        {% endif %}
+        {% else %}
+<br>
+        <p>No messages yet.</p>
+        <br>
+ {% endfor %}
+    <a class="btn btn-outline-light" data-toggle="tooltip" data-placement="top" title="top" href="#top"><i class="material-icons">keyboard_arrow_up</i></a>
+</div>
+</div>
+
+{% endblock page_content %}
+</body>
+</html>
