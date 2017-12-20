@@ -5,6 +5,7 @@ import webapp2
 from google.appengine.ext import ndb
 from google.appengine.api import users
 from google.appengine.api import urlfetch
+import logging
 import json
 import urllib
 
@@ -240,7 +241,7 @@ class Weather(BaseHandler):
     def get(self):
         url = "http://api.openweathermap.org/data/2.5/weather?q=Vienna,at&units=metric&appid=6aa9181f8379ea03bdb74008ab5aa247"
         result = urlfetch.fetch(url)
-
+        logging.info(url)
         weather_info = json.loads(result.content)
         params = {"weather_info": weather_info}
         self.render_template("weather.html", params)
@@ -250,11 +251,32 @@ class Weather(BaseHandler):
         city = self.request.get("city")
 
         url = "http://api.openweathermap.org/data/2.5/weather?" + str(city) + "&units=metric&appid=6aa9181f8379ea03bdb74008ab5aa247"
+
         result = urlfetch.fetch(url)
         weather_info = json.loads(result.content)
-
+        logging.info(weather_info)
+        print weather_info
         params = {"weather_info": weather_info}
+        if weather_info.has_key('message'):
+            return self.write("Sorry! =( ... Service not available at the moment! ... Try it later!")
+
+
         self.render_template("weather.html", params)
+
+class News(BaseHandler):
+    def get(self):
+        url = ('https://newsapi.org/v2/top-headlines?'
+               'sources=bbc-news&'
+               'apiKey=fe37b53268194be1beb7dfa081a9c3d8')
+
+        result = urlfetch.fetch(url)
+        news_info = json.loads(result.content)
+        logging.info(news_info)
+
+        params = {"news_info": news_info}
+
+        self.render_template("news.html", params)
+
 
 
 
@@ -271,4 +293,5 @@ app = webapp2.WSGIApplication([
     webapp2.Route('/contact', ContactHandler, name="contact-site"),
     webapp2.Route('/contact/<contact_id:\d+>/delete', ContactDelete, name="contact-delete"),
     webapp2.Route('/weather', Weather, name="weather-site"),
+    webapp2.Route('/news', News, name="news-site"),
 ], debug=True)

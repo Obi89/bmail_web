@@ -2,12 +2,13 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>{% block title %}Boogle-Weather{% endblock title %}</title>
+  <title>{% block title %}Boogle-Weather - {{ user.email() }} {% endblock title %}</title>
 
 </head>
 <body>
 {% extends "base.html" %}
 {% block page_content %}
+
 {% if weather_info.main.temp <= 0 %}
 <div class="weather">
     <style>.weather{background-image: url(assets/img/0.jpeg);text-align: center; color: white; height: 750px; }</style>
@@ -40,16 +41,14 @@
             <option value="q=Vienna,at">Vienna</option>
             <option value="q=London,uk">London</option>
             <option value="q=Rome,it">Rome</option>
-                  <option value="q=Madrid,es">Madrid</option>
-                  <option value="q=Washington,us">Washington</option>
-                  <option value="q=Sydney,au">Sydney</option>
-                  <option value="q=Moscow,ru">Moscow</option>
-                 <option value="q=Schladming,at">Schladming</option>
-    </select>
-  </div>
-             <br>
+            <option value="q=Madrid,es">Madrid</option>
+            <option value="q=Washington,us">Washington</option>
+            <option value="q=Sydney,au">Sydney</option>
+            <option value="q=Moscow,ru">Moscow</option>
+            <option value="q=Schladming,at">Schladming</option>
+    </select><br>
             <button class="btn btn-outline-dark" type="submit"><i class="material-icons">brightness_low</i> Show Weather</button>
-
+            </div>
 
          </form>
 </div>

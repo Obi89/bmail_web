@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>{% block title %}Bmail/Inbox{% endblock title %}</title>
+  <title>{% block title %}Bmail/Inbox - {{ user.email() }} {% endblock title %}</title>
 </head>
 <body>
 {% extends "base.html" %}
@@ -21,7 +21,7 @@
         {% if message.email == user.email()%}
 
     <p>
-        <strong><i>from: <a href="mailto:{{message.email}}">{{ message.send }}</a></i></strong><br>
+        <strong><i>from: <a href="mailto:{{message.send}}">{{ message.send }}</a></i></strong><br>
     <p><strong>date:</strong>at {{ message.created.strftime('%d %B %Y at %H:%M') }}:</p>
         <p><strong>subject:</strong> {{ message.subject }}</p><br>
         <em>{{ message.message }}</em><br>
