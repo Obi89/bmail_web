@@ -258,16 +258,14 @@ class Weather(BaseHandler):
         print weather_info
         params = {"weather_info": weather_info}
         if weather_info.has_key('message'):
-            return self.write("Sorry! =( ... Service not available at the moment! ... Try it later!")
+            return self.render_template("no_service.html")
 
 
         self.render_template("weather.html", params)
 
 class News(BaseHandler):
     def get(self):
-        url = ('https://newsapi.org/v2/top-headlines?'
-               'sources=bbc-news&'
-               'apiKey=fe37b53268194be1beb7dfa081a9c3d8')
+        url = ("https://newsapi.org/v2/top-headlines?sources=spiegel-online&apiKey=fe37b53268194be1beb7dfa081a9c3d8")
 
         result = urlfetch.fetch(url)
         news_info = json.loads(result.content)

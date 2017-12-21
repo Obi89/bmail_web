@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}{% endblock title %}</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
@@ -15,29 +16,25 @@
 <body>
 <div class="navi">
     <nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand" href="#exampleModal" data-toggle="modal" data-target="#exampleModal">Boogle  |</a>
+    <a class="navbar-brand" href="/">Boogle  |</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
+{% if user %}
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/"><i class="material-icons">home</i> Home| <span class="sr-only">(current)</span></a>
-        </li>
-          {% if user %}
-        <li class="nav-item">
-          <a class="nav-link" href="/boogle"><i class="material-icons">create</i> Compose|</a>
-        </li>
-          <li class="nav-item">
-          <a class="nav-link" href="/inbox"><i class="material-icons">inbox</i> Inbox|</a>
-        </li>
-          <li class="nav-item">
-          <a class="nav-link" href="/outbox"><i class="material-icons">send</i> Sent Mails|</a>
-        </li>
-          <li class="nav-item">
-          <a class="nav-link" href="/deleted"><i class="material-icons">delete</i> Trash|</a>
-        </li>
+            <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="material-icons">home</i> Home|
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/boogle"><i class="material-icons">create</i> Compose|</a>
+          <a class="dropdown-item" href="/inbox"><i class="material-icons">inbox</i> Inbox|</a>
+          <a class="dropdown-item" href="/outbox"><i class="material-icons">send</i> Sent Mails|</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/deleted"><i class="material-icons">delete</i> Trash|</a>
+        </div>
+      </li>
           <li class="nav-item">
           <a class="nav-link" href="/contact"><i class="material-icons">perm_contact_calendar</i> Contact|</a>
         </li>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Boogle-no_service{% if user %} - {{ user.email() }} {% endif %}{% endblock title %}</title>
+</head>
+<body>
+{% extends "base.html" %}
+{% block page_content %}
+<div id="top" class="book">
+    <style>.book{background-image: url(assets/img/no_service.jpeg);}</style>
+    <div class="no_service">
+      <div class="new_contact">
+
+<h2><i class="material-icons">warning</i> Sorry ... this service is not available at the moment ... please try it later! <i class="material-icons">warning</i></h2>
+
+    </div>
+</div>
+</div>
+{% endblock page_content %}
+  </body>
+</html>
